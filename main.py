@@ -17,7 +17,6 @@ from fastapi.staticfiles import StaticFiles
 SPOTIPY_CLIENT_ID = os.environ.get('SPOTIPY_CLIENT_ID')
 SPOTIPY_CLIENT_SECRET = os.environ.get('SPOTIPY_CLIENT_SECRET')
 
-# es = Elasticsearch('http://192.168.52.163:9210')
 agent: Agent = Agent('https://192.168.52.196:9220', 'cnT_mp*rlmOAMiL244u0')
 
 templates = Jinja2Templates(directory='./templates/')
@@ -37,24 +36,12 @@ app.add_middleware(ElasticAPM,client=apm)
 
 @app.get("/")
 async def home(request: Request):
-    # token = getAccessToken(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET)
     return templates.TemplateResponse("index.html",{"request":request})
 
-
-@app.get("/search")
-async def search(request: Request,q: str):
-    # if searchData(q):
-        # results = getMusic
-    # else :
-    results = getMusic(q)
-    # insertData(results)
-    # artist = getArtist(q)
-    return results
     
 @app.get("/exist")
 async def exist(q:str):
     track_list = []
-    # print(q)
     es_res = agent.search_data("artist",q)
     if es_res['hits']['total']['value'] == 0:
         res = getArtist(q);agent.insert_data(res)
@@ -63,11 +50,6 @@ async def exist(q:str):
         data = es_res['hits']['hits'][0]["_source"]
         return data
 
-
-@app.get("/artist")
-async def get_artist(q:str):
-    artist = getArtist(q)
-    return artist
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)

@@ -60,8 +60,6 @@ def getMusic(artist):
 
 def getArtist(artist):    
     results = sp.search(q=artist, type='artist',limit=1)
-    # result = results['artists']['items'][0]['images'][-1]['url'] 
-    # result = results['aritsts']['items'][0]['images'][1]['url']
     return results
 print(getArtist("newjeans"))
 

@@ -6,7 +6,6 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
 import uvicorn
-# from get_music import *
 from es import *
 import requests
 import os

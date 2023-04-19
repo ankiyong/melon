@@ -31,7 +31,7 @@ class Agent:
     def __get_es(self) -> Elasticsearch:
         return Elasticsearch(self.host, http_auth=('elastic', self.http_auth), verify_certs=False)
 
-    def search_data(self,index,q):
+    def search_data(self,index,q) -> list[dict[str,int]]:
         with open(f'./es/{index}.json') as f:
             doc = f.read()
         artist = q

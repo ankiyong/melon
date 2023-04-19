@@ -20,18 +20,30 @@
 </head>
 <body> 
     <div id="cont_wrap" class="clfix">
-            <table id="result_list" class= "table table table-border" style="width: 70%;">
-                <thead>
-                <tr>
-                <th class="track-column" scope="col" style="width: 10%;">img</th>
-                <th class="track-column" scope="col" style="width: 45%;">name</th>
-                <th class="track-column" scope="col" style="width: 33%;">genre</th>            
-                <th class="track-column" scope="col" style="width: 12%;">followers</th>
-                </tr>
-                </thead>
-                <tbody id="table_content">
-                </tbody>
-            </table>
+        <main>
+            <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+            <div class="artist_info" id="artist_info_upper">      
+              <div class="upper_info_box" id="img"></div>
+              <div class="upper_info_box" id="artist"></div>
+              <div class="upper_info_box" id="top_track"></div>>
+          </div>
+              
+            <div class="artist_info" id="artist_info_lower">
+                <div class="lower_info_box" id="album1">sdfsd</div>
+              <div class="lower_info_box" id="album1">sdfsd</div>
+              <div class="lower_info_box" id="album1">sdfsd</div>
+              <div class="lower_info_box" id="album1">sdfsd</div>
+              <div class="lower_info_box" id="album1">sdfsd</div>
+              
+            </div>
+          </main>
     </div>  
     <!-- </form> -->
 </body>
@@ -81,16 +93,18 @@
                     img = obj['artists']['items'][0]['images'][1]['url']
                     name = obj['artists']['items'][0]['name']
                     url = obj['artists']['items'][0]['external_urls']['spotify']                       
-
-                    tc += `<tr>`;
-                    tc += `<td><img class='artist_img' src='${img}'></td>`;
-                    tc += `<td class="track_column"><nobr>`+name+`</nobr></td>`;                        
-                    tc += `<td class="vert-m">`+genres+`</td>`;
-                    tc += `<td class="vert-m text-right">`+followers+`</td>`;
-                    tc += `</tr>`;
                     
-                    $("#table_content").html("");                     
-                    $("#table_content").append(tc);
+                    artist_img = `<img class='artist_img' src='${img}' style="max-width: 100%; height: auto;">`
+
+                    // tc += `<tr>`;
+                    // tc += `<td><img class='artist_img' src='${img}'></td>`;
+                    // tc += `<td class="track_column"><nobr>`+name+`</nobr></td>`;                        
+                    // tc += `<td class="vert-m">`+genres+`</td>`;
+                    // tc += `<td class="vert-m text-right">`+followers+`</td>`;
+                    // tc += `</tr>`;
+                    
+                    // $("#table_content").html("");                     
+                    $("#img").append(artist_img);
                 },
                 error: function() {
                     console.log("fail"+artist);

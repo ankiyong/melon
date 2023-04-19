@@ -56,3 +56,84 @@ td.track_column {
     display: block;
     
 }
+
+main {
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  
+  nav {
+    height: 30px;
+    background-color: #333; /* set background color */
+  }
+  
+  nav ul {
+    list-style-type: none; /* remove bullet points from the list */
+    margin: 0; /* remove default margin */
+    padding: 0; /* remove default padding */
+    overflow: hidden; /* hide any content that overflows */
+  }
+  
+  nav li {
+    float: left; /* float the list items to create a horizontal layout */
+  }
+  
+  nav li a {
+    height: 30px; /* set the height of the anchor tags to 30px */
+    line-height: 30px; /* set the line height to center the text vertically */
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0 16px; /* remove top and bottom padding */
+    text-decoration: none;
+  }
+  
+  nav li a:hover {
+    background-color: #111; /* add background color on hover */
+  }
+  
+  .artist_info {
+    width: 1000px;
+    border: 1px solid;
+    background: none;
+    text-align: center;
+    line-height: 100px;
+    box-sizing: border-box;  
+  }
+  
+  .upper_info_box{      	
+      float: left;
+        height: 100%;
+        border: 1px solid;
+  }
+  
+  .lower_info_box{      	
+      float: left;  	
+        border: 1px solid;
+        height: 100%;
+        width: 20%;
+  }
+  
+  #img {
+    height: 100%;
+    width: 20%;
+  }
+  
+  #artist {
+    width: 60%
+    
+  }
+  
+  #top_track {
+   width: 20%; 
+  }
+  
+  #artist_info_upper {
+    height: 280px;
+  }
+  
+  #artist_info_lower {
+    height: 150px;
+  }
+  
